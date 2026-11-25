@@ -1,8 +1,7 @@
 from __future__ import annotations
 
-from collections.abc import Sequence
 from dataclasses import dataclass, field
-from typing import Any
+import numpy as np
 
 @dataclass
 class GateOp:
@@ -16,7 +15,7 @@ class GateOp:
     name: str
     qubits: tuple[int, ...]
     params: tuple[float, ...] = ()
-    matrix: Any | None = field(default=None, repr=False)
+    matrix: np.ndarray | None = field(default=None, repr=False)
 
     @property
     def num_qubits(self) -> int:
